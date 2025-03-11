@@ -48,3 +48,104 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+- # 🚀 EAS (Expo Application Services) Setup on macOS
+
+EAS is used for building, deploying, and managing Expo projects, especially for **production-ready apps**. Follow these steps to install and use EAS on macOS.
+
+---
+
+## ✅ 1. Install `eas-cli`
+You need `eas-cli` to build and deploy Expo apps.
+
+```sh
+npm install -g eas-cli
+```
+
+Check if it's installed correctly:
+
+```sh
+eas --version
+```
+
+---
+
+## ✅ 2. Login to Expo Account
+Before using EAS, login to your Expo account:
+
+```sh
+eas login
+```
+
+If you don't have an account, sign up at [expo.dev](https://expo.dev/).
+
+---
+
+## ✅ 3. Configure Your Project for EAS
+Inside your Expo project folder, run:
+
+```sh
+eas build:configure
+```
+
+This will generate an `eas.json` file for managing different build profiles.
+
+---
+
+## 🎯 Using EAS for Building and Deployment
+
+### 📦 1. Build an App
+#### **iOS (Requires Mac & Xcode)**
+```sh
+eas build -p ios
+```
+- If you **don't have an Apple Developer account**, use `--profile development` to test locally.
+- If you have an **Apple Developer account**, it will guide you to sign in.
+
+#### **Android**
+```sh
+eas build -p android
+```
+- It will generate an `.apk` or `.aab` file for Android.
+
+---
+
+### 🚀 2. Deploy Your App
+
+#### ✅ **Internal Testing (EAS Submit)**
+You can upload directly to the App Store or Google Play:
+
+```sh
+eas submit -p ios
+```
+```sh
+eas submit -p android
+```
+
+#### ✅ **Share with QR Code**
+To get a shareable link for testing:
+
+```sh
+eas build -p ios --profile preview
+eas build -p android --profile preview
+```
+After the build finishes, you'll get a URL to share.
+
+---
+
+## 🔥 Summary of EAS Commands
+
+| Command | Description |
+|---------|------------|
+| `eas build:configure` | Initialize EAS for your project |
+| `eas build -p ios` | Build for iOS |
+| `eas build -p android` | Build for Android |
+| `eas submit -p ios` | Submit to the App Store |
+| `eas submit -p android` | Submit to Google Play |
+| `eas login` | Login to Expo account |
+
+---
+
+Now you're ready to **build and deploy your Expo app with EAS!** 🚀 Let me know if you need help. 😃
+
+
